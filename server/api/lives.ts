@@ -23,12 +23,12 @@ export default defineEventHandler(
 
     const response = await notion.databases.query({
     database_id: runtimeConfig.notion.databaseId as string || '',
-      sorts: [
-        {
-          property: 'ID',
-          direction: 'descending',
-        },
-      ]
+      // sorts: [
+      //   {
+      //     property: 'ID',
+      //     direction: 'descending',
+      //   },
+      // ]
     })
 
     return response.results

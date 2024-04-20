@@ -1,8 +1,22 @@
 <template>
-  <main>ライブ配信プラットフォーム</main>
+  <main>
+    <h1>Drop in ライブ配信</h1>
+    <div v-for="live in lives" :key="live.link">
+      <h2>{{ live.title }}</h2>
+      <a :href="live.link">アクセスはこちらから</a>
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">
+import { Live } from '~/models/live'
+import type { LiveResponseResult } from '~/types/response'
+
+const { data: livesResponseResults } = await useFetch('/api/lives')
+const lives = (livesResponseResults.value as LiveResponseResult[]).map(nr => Live.fromResponse(nr))
+
+console.log(lives)
+
 useHead({
   title: 'ライブ配信情報',
 })
