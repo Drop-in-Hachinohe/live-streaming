@@ -20,10 +20,23 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    '@nuxtjs/robots'
+    '@nuxtjs/robots', '@nuxtjs/i18n',
   ],
   robots: {
     UserAgent: '*',
     Disallow: '/'
-  }
+  },
+  i18n: {
+    locales: [
+      { code: 'ja', iso: 'ja-JP', file: 'ja.json' },
+      // { code: 'en', iso: 'en-US', file: 'en.json' },
+    ],
+    defaultLocale: 'ja',
+    langDir: 'locales/',
+    strategy: 'no_prefix',
+    lazy: true,
+    compilation: {
+      strictMessage: false,
+    },
+  },
 })

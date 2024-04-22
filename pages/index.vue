@@ -12,12 +12,15 @@
 import { Live } from '~/models/live'
 import type { LiveResponseResult } from '~/types/response'
 
+const { $i18n } = useNuxtApp()
+
 const { data: livesResponseResults } = await useFetch('/api/lives')
 const lives = (livesResponseResults.value as LiveResponseResult[]).map(nr => Live.fromResponse(nr))
 
-console.log(lives)
+// console.log(livesResponseResults.value)
+// console.log(lives)
 
 useHead({
-  title: 'ライブ配信情報',
+  title: $i18n.t('app.name'),
 })
 </script>

@@ -50,6 +50,15 @@ export type LiveResponseResult = {
       }
       type: 'multi_select'
     }
+    status: {
+      id: string
+      status: {
+        color: string
+        id: string
+        name: 'Not started' | 'In progress' | 'Done'
+      }
+      type: 'status'
+    }
     tags: {
       id: string
       multi_select: TagResponse[]
