@@ -2,7 +2,7 @@ import type { StreamResponseResult } from '~/types/response'
 import { Tag } from './tag'
 
 interface StreamArgs {
-  // number: number
+  uuid: string
   title: string
   tags: Tag[]
   status: string
@@ -20,7 +20,7 @@ export class Stream {
   static readonly PUBLISH_FALSE = '非公開'
 
   constructor(args: StreamArgs) {
-    // this.number = args.number
+    this.uuid = args.uuid
     this.title = args.title
     this.tags = args.tags
     this.status = args.status
@@ -30,7 +30,7 @@ export class Stream {
     this.publish = args.publish
   }
 
-  // number: number
+  uuid: string
   title: string
   tags: Tag[]
   status: string
@@ -41,7 +41,7 @@ export class Stream {
 
   static dummy(): Stream {
     return new Stream({
-      // number: 0,
+      uuid: '',
       title: '',
       tags: [],
       status: '',
@@ -54,7 +54,7 @@ export class Stream {
 
   static fromResponse(response?: StreamResponseResult): Stream {
     return new Stream({
-      // number: response?.properties.ID.unique_id.number || 0,
+      uuid: response?.id || '',
       title: response?.properties.title.title[0].text.content || '',
       tags: response?.properties.tags.multi_select.map(tag => Tag.fromResponse(tag)) ?? [] as Tag[],
       status: response?.properties.status.status.name || Stream.STATUS_NOT_STARTED,
