@@ -4,7 +4,7 @@ export type TagResponse = {
   name: string
 }
 
-export type LiveResponseResult = {
+export type StreamResponseResult = {
   archived: boolean
   cover: string | null
   created_by: {
@@ -68,6 +68,15 @@ export type LiveResponseResult = {
       id: string
       type: 'url'
       url: string | null
+    }
+    live_at: {
+      id: string
+      type: 'date'
+      date: {
+        start: string | null
+        end: string | null
+        time_zone: string | null
+      }
     }
     thumbnail: {
       id: string
