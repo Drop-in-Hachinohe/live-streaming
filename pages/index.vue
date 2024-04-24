@@ -89,7 +89,7 @@ useHead({
   }
 
   .info_container {
-    @apply py-12;
+    @apply pt-8 pb-12;
   }
 }
 

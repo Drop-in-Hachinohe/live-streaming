@@ -8,6 +8,8 @@ const props = defineProps({
   },
 })
 
+console.log(props.stream)
+
 const thumbnailUrl = computed<string>((): string => {
   if (props.stream.thumbnail) return props.stream.thumbnail
 
@@ -69,7 +71,7 @@ const textColorByStatus = computed<string>((): string => {
 
 <template>
   <div class="stream_info">
-    <h3>{{ stream.title }}</h3>
+    <h3 :id="stream.uuid">{{ stream.title }}</h3>
     <img :src="thumbnailUrl" :alt="stream.title">
     <p class="status"><span class="font-bold" :style="{ 'color': textColorByStatus }">{{ status }}</span> / {{ liveStartAt }}</p>
     <a
@@ -96,6 +98,11 @@ const textColorByStatus = computed<string>((): string => {
 
   > h3 {
     @apply text-xl text-center mb-4 font-bold;
+
+    @apply pt-[72px] mt-[-72px];
+    @media (min-width: 640px) {
+      @apply pt-[128px] mt-[-128px];
+    }
   }
 }
 </style>
