@@ -2,11 +2,14 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   components: [
-    // { path: '~/components/elements' },
+    { path: '~/components/elements' },
     { path: '~/components/layouts' },
     '~/components',
   ],
-  css: ['~/assets/styles/global.scss'],
+  css: [
+    '~/assets/styles/global.scss',
+    '~/assets/styles/font.scss',
+  ],
   app: {
     head: {
       charset: 'utf-8',
