@@ -1,3 +1,4 @@
 {
-  "app.name": "ライブ配信情報 {'|'} 黒かもめアンサンブル"
+  "app.name": "ライブ配信情報 {'|'} 黒かもめアンサンブル",
+  "page.name.stream.title": "{title}"
 }
