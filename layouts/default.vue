@@ -1,24 +1,3 @@
-<template>
-  <div>
-    <Header
-      :menuList="headerMenuList"
-      :bgColorClass="'bgYellow'"
-      :textColorClass="'text-gray-800'"
-      :headerLogoLink="'/kurokamome'"
-    />
-    <slot />
-    <Footer
-      :menuList="footerMenuList"
-      :snsList="snsList"
-      :bgColorClass="'bgYellow'"
-      :textColorClass="'text-gray-800'"
-      :headerLogoImg="'/images/kurokamome/header_logo.jpg'"
-      :headerLogoLink="'/kurokamome'"
-      >
-    </Footer>
-  </div>
-</template>
-
 <script setup lang="ts">
 const headerMenuList = ref([
   {
@@ -55,15 +34,15 @@ const footerMenuList = ref([
       },
       {
         name: "お知らせ",
-        link: "/kurokamome/news",
+        link: "https://www.dropin8.jp/kurokamome/news",
       },
       {
         name: "お問合せ",
-        link: "/kurokamome/contact",
+        link: "https://www.dropin8.jp/kurokamome/contact",
       },
       {
         name: "中の人",
-        link: "/kurokamome/owner",
+        link: "https://www.dropin8.jp/kurokamome/owner",
       },
     ]
   },
@@ -72,12 +51,12 @@ const footerMenuList = ref([
     itemList: [
       {
         name: "不登校はフリーランス",
-        link: "/space",
+        link: "https://www.dropin8.jp/space",
         target: true
       },
       {
         name: "鮫のゲストハウスDrop in",
-        link: "/guest_house",
+        link: "https://www.dropin8.jp/guest_house",
         target: true
       },
       {
@@ -102,5 +81,26 @@ const snsList = ref([
   },
 ])
 </script>
+
+<template>
+  <div>
+    <Header
+      :menuList="headerMenuList"
+      :bgColorClass="'bgYellow'"
+      :textColorClass="'text-gray-800'"
+      :headerLogoLink="'/kurokamome'"
+    />
+    <slot />
+    <Footer
+      :menuList="footerMenuList"
+      :snsList="snsList"
+      :bgColorClass="'bgYellow'"
+      :textColorClass="'text-gray-800'"
+      :headerLogoImg="'/images/kurokamome/header_logo.jpg'"
+      :headerLogoLink="'/kurokamome'"
+      >
+    </Footer>
+  </div>
+</template>
 
 <style lang="scss" scoped></style>

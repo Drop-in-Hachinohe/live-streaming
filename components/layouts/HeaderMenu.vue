@@ -1,16 +1,3 @@
-<template>
-  <nav :class="[bgColorClass, headerClass]">
-    <a :href="item.link" v-for="item in menuList"
-      :target="item.target ? '_blank' : '_self'"
-      @click.native="$emit('close')"
-      class="item"
-    >
-        <img :src="item.imageSrc.default" class="icon"/>
-        <p class="nav_text">{{ item.name }}</p>
-    </a>
-  </nav>
-</template>
-
 <script setup lang="ts">
 defineProps({
   menuList: {
@@ -26,13 +13,20 @@ defineProps({
     required: true
   },
 })
-
-const menuItemSrc = computed((): ((imageFileName: string) => string) => {
-  return (imageFileName: string): string => {
-    return `_nuxt/assets/images/header/${imageFileName}`
-  }
-})
 </script>
+
+<template>
+  <nav :class="[bgColorClass, headerClass]">
+    <a :href="item.target ? item.link : `https://www.dropin8.jp${item.link}`" v-for="item in menuList"
+      :target="item.target ? '_blank' : '_self'"
+      @click.native="$emit('close')"
+      class="item"
+    >
+        <img :src="item.imageSrc.default" class="icon"/>
+        <p class="nav_text">{{ item.name }}</p>
+    </a>
+  </nav>
+</template>
 
 <style lang="scss" scoped>
 .nav_text {

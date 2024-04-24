@@ -1,29 +1,3 @@
-<template>
-  <nav class="header" :class="bgColorClass">
-    <nuxt-link :to="headerLogoLink" class="header_logo">
-      <img src="~/assets/images/header_logo.jpg" />
-    </nuxt-link>
-    <HeaderMenu 
-      :menuList="menuList" 
-      :headerClass="'header_nav'"
-    />
-
-    <div class="toggle_btn" @click="openMenu = !openMenu">
-      {{ message }}
-    </div>
-    <transition name="slide">
-      <HeaderMenu
-        v-show="openMenu"
-        :menuList="menuList"
-        :bgColorClass="bgColorClass"
-        :textColorClass="textColorClass"
-        :headerClass="'header_nav_sp'"
-        @close="openMenu = false"
-      />
-    </transition>
-  </nav>
-</template>
-
 <script setup lang="ts">
 const openMenu = ref<boolean>(false)
 
@@ -51,6 +25,32 @@ const props = defineProps({
 })
 </script>
 
+<template>
+  <nav class="header" :class="bgColorClass">
+    <a href="https://www.dropin8.jp/kurokamome" class="header_logo">
+      <img src="~/assets/images/header_logo.jpg" />
+    </a>
+    <HeaderMenu 
+      :menuList="menuList" 
+      :headerClass="'header_nav'"
+    />
+
+    <div class="toggle_btn" @click="openMenu = !openMenu">
+      {{ message }}
+    </div>
+    <transition name="slide">
+      <HeaderMenu
+        v-show="openMenu"
+        :menuList="menuList"
+        :bgColorClass="bgColorClass"
+        :textColorClass="textColorClass"
+        :headerClass="'header_nav_sp'"
+        @close="openMenu = false"
+      />
+    </transition>
+  </nav>
+</template>
+
 <style lang="scss" scoped>
 .header {
   @apply flex justify-between items-center fixed top-0 w-full h-[50px] z-50 shadow-2xl;
@@ -73,7 +73,7 @@ const props = defineProps({
     @apply h-[60px] no-underline;
   }
   .item {
-    @apply w-[120px] py-0 px-[5px] flex flex-col items-center justify-center pl-3 no-underline;
+    @apply w-[120px] py-0 px-[5px] flex flex-col items-center justify-center no-underline;
   }
 }
 .toggle_btn {
