@@ -5,7 +5,7 @@
       @click.native="$emit('close')"
       class="item"
     >
-        <img :src="menuItemSrc(item.imageFileName)" class="icon"/>
+        <img :src="item.imageSrc.default" class="icon"/>
         <p class="nav_text">{{ item.name }}</p>
     </a>
   </nav>

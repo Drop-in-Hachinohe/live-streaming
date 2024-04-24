@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 defineProps({
   menuList: {
     type: Object,
@@ -36,7 +36,7 @@ defineProps({
         <ul class="flex sm:ml-6">
           <li v-for="sns in snsList" class="flex frex-col items-center">
             <a :href="sns.link" target="_blank">
-              <img :src="`_nuxt/assets/images/sns/icon_${sns.name}.svg`" class="w-12 px-1"/>
+              <img :src="sns.imageSrc.default" class="w-12 px-1"/>
             </a>
           </li>
           <li>

@@ -24,23 +24,23 @@ const headerMenuList = ref([
   {
     name: "中の人",
     link: "/kurokamome/owner",
-    imageFileName: 'icon_owner.png'
+    imageSrc: await import(`~/assets/images/header/icon_owner.png`),
   },
   {
     name: "過去動画",
     link: "https://www.youtube.com/@user-yk8qe2nv2h",
-    imageFileName: 'icon_video.png',
+    imageSrc: await import(`~/assets/images/header/icon_video.png`),
     target: true
   },
   {
     name: "お知らせ",
     link: "/kurokamome/news",
-    imageFileName: 'icon_news.png'
+    imageSrc: await import(`~/assets/images/header/icon_news.png`),
   },
   {
     name: "お問合せ",
     link: "/kurokamome/contact",
-    imageFileName: 'icon_contact.png'
+    imageSrc: await import(`~/assets/images/header/icon_contact.png`),
   },
 ]);
 
@@ -93,10 +93,12 @@ const snsList = ref([
   {
     name: "x",
     link: "https://twitter.com/Kurokamome_ens",
+    imageSrc: await import(`~/assets/images/sns/icon_x.svg`),
   },
   {
     name: "instagram",
     link: "https://www.instagram.com/kurokamome_ens/",
+    imageSrc: await import(`~/assets/images/sns/icon_instagram.svg`),
   },
 ])
 </script>
