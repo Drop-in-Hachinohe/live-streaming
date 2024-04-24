@@ -16,6 +16,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width',
       htmlAttrs: {
         lang: 'ja',
+        prefix: 'og: http://ogp.me/ns#',
       },
       meta: [
         { hid: 'robots', name: 'robots', content: 'noindex' }
@@ -23,6 +24,9 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    public: {
+      siteUrl: process.env.SITE_URL,
+    },
     notion: {
       token: process.env.NOTION_TOKEN,
       databaseId: process.env.NOTION_DATABASE_ID,
