@@ -329,9 +329,9 @@
     to-fast-properties "^2.0.0"
 
 "@cloudflare/kv-asset-handler@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.3.1.tgz#9b86167e58dbc419943c8d3ddcd8e2823f5db300"
-  integrity sha512-lKN2XCfKCmpKb86a1tl4GIwsJYDy9TGuwjhDELLmpKygQhw8X2xR4dusgpC5Tg7q1pB96Eb0rBo81kxSILQMwA==
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.3.2.tgz#06437b75664729823ac9033b89f06a3b078e4f55"
+  integrity sha512-EeEjMobfuJrwoctj7FA1y1KEbM0+Q1xSjobIEyie9k4haVEBB7vkDvsasw1pM3rO39mL2akxIAzLMUAtrMHZhA==
   dependencies:
     mime "^3.0.0"
 
