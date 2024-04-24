@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  components: [
+    // { path: '~/components/elements' },
+    { path: '~/components/layouts' },
+    '~/components',
+  ],
+  css: ['~/assets/styles/global.scss'],
   app: {
     head: {
       charset: 'utf-8',
@@ -22,6 +28,12 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/robots', '@nuxtjs/i18n',
   ],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
   robots: {
     UserAgent: '*',
     Disallow: '/'
