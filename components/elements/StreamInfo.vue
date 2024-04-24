@@ -8,8 +8,6 @@ const props = defineProps({
   },
 })
 
-console.log(props.stream)
-
 const thumbnailUrl = computed<string>((): string => {
   if (props.stream.thumbnail) return props.stream.thumbnail
 
