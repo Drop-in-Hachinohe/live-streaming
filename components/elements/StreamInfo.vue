@@ -73,7 +73,7 @@ const textColorByStatus = computed<string>((): string => {
     <img :src="thumbnailUrl" :alt="stream.title">
     <p class="status"><span class="font-bold" :style="{ 'color': textColorByStatus }">{{ status }}</span> / {{ liveStartAt }}</p>
     <a
-      class="btn w-fit bg-kurokamome-yellow text-white px-6 py-3 text-sm"
+      class="btn btn_link"
       :href="stream.link"
       target="_blank"
       rel="noopener"
@@ -91,11 +91,15 @@ const textColorByStatus = computed<string>((): string => {
   }
 
   .status {
-    @apply mt-4 mb-6;
+    @apply mt-4 mb-6 relative z-[49];
+  }
+
+  .btn_link {
+    @apply w-fit bg-kurokamome-yellow text-white px-6 py-3 text-sm relative z-[49];
   }
 
   > h3 {
-    @apply text-xl text-center mb-4 font-bold;
+    @apply text-xl text-center mb-4 font-bold relative z-0;
 
     @apply pt-[72px] mt-[-72px];
     @media (min-width: 640px) {

@@ -85,7 +85,7 @@ useHead({
   @apply px-0 #{!important};
 
   .subheading {
-    @apply text-2xl text-center;
+    @apply text-2xl text-center relative z-[49];
   }
 
   .info_container {
