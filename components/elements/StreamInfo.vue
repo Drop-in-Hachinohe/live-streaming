@@ -8,6 +8,8 @@ const props = defineProps({
   },
 })
 
+const { $i18n } = useNuxtApp()
+
 const thumbnailUrl = computed<string>((): string => {
   if (props.stream.thumbnail) return props.stream.thumbnail
 
@@ -21,12 +23,12 @@ const thumbnailUrl = computed<string>((): string => {
 })
 
 const formatDate = (d: Date) => {
-  const dateOptions: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-  const timeOptions: Intl.DateTimeFormatOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
+  const dateOptions: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }
+  const timeOptions: Intl.DateTimeFormatOptions = { hour: '2-digit', minute: '2-digit', hour12: false }
 
   // 日本語で日付と時刻をフォーマット
-  const formattedDate = d.toLocaleDateString('ja-JP', dateOptions);
-  const formattedTime = d.toLocaleTimeString('ja-JP', timeOptions);
+  const formattedDate = d.toLocaleDateString('ja-JP', dateOptions)
+  const formattedTime = d.toLocaleTimeString('ja-JP', timeOptions)
 
   return `${formattedDate} ${formattedTime} ~`;
 }
@@ -34,8 +36,8 @@ const formatDate = (d: Date) => {
 const liveStartAt = computed<string>((): string => {
   if (!props.stream.liveStartAt) return ''
 
-  const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
+  const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }
+  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false }
 
   return formatDate(new Date(props.stream.liveStartAt))
 })
@@ -43,11 +45,11 @@ const liveStartAt = computed<string>((): string => {
 const status = computed<string>((): string => {
   switch (props.stream.status) {
     case Stream.STATUS_NOT_STARTED:
-      return '配信予定'
+      return $i18n.t('streaminfo.scheduledstream')
     case Stream.STATUS_IN_PROGRESS:
-      return '配信中'
+      return $i18n.t('streaminfo.streamingnow')
     case Stream.STATUS_DONE:
-      return '配信終了'
+      return $i18n.t('streaminfo.streamended')
     default:
       return ''
   }
@@ -77,7 +79,7 @@ const textColorByStatus = computed<string>((): string => {
       :href="stream.link"
       target="_blank"
       rel="noopener"
-      >コンサートをみる</a
+      >{{ $t('streaminfo.watch') }}</a
     >
   </div>
 </template>

@@ -1,8 +1,10 @@
 <script setup lang="ts">
+const { $i18n } = useNuxtApp()
+
 const openMenu = ref<boolean>(false)
 
 const message = computed(() => {
-  return openMenu.value ? "閉じる" : "メニュー"
+  return openMenu.value ? $i18n.t('header.close') : $i18n.t('header.open')
 })
 
 const props = defineProps({

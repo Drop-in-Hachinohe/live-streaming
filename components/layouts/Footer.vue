@@ -69,11 +69,11 @@ defineProps({
       <div class="flex justify-center mt-6">
         <a href="https://www.dropin8.jp/">
           <img src="~/assets/images/base_logo.png" class="w-32 py-3"/>
-          <p class="text-xs text-center">Drop in 総合TOP</p>
+          <p class="text-xs text-center">{{ $t('footer.dropintop') }}</p>
         </a>
       </div>
       
-      <p class="mt-8 text-xs text-center">© Drop in. All RIGHTS RESERVED.</p>
+      <p class="mt-8 text-xs text-center">{{ $t('footer.copyright') }}</p>
     </section>
   </div>
 </template>

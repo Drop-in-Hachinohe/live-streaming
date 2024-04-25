@@ -19,13 +19,17 @@ useHead({
     <!-- Key visual -->
     <section class="kv">
       <div class="logo">
-        <h1 class="font-yu">奏者が勝手に楽しいアンサンブル</h1>
-        <img src="~/assets/images/kv_logo.png" class="logoImg" alt="黒かもめアンサンブル" />
+        <h1 class="font-yu">{{ $t('page.top.kv.catchcopy') }}</h1>
+        <img
+          class="logoImg"
+          src="~/assets/images/kv_logo.png"
+          :alt="$t('page.top.kv.catchcopy')"
+        />
       </div>
     </section>
     <!-- ライブ配信情報一覧 -->
     <section class="section streams_info bg_cloth">
-      <h2 class="subheading font-yu">ライブ配信情報</h2>
+      <h2 class="subheading font-yu">{{ $t('page.top.streams.subheading') }}</h2>
       <div :class="streams.length > 0 ? 'info_container' : ''">
         <template v-if="streams.length > 0">
           <StreamInfo
@@ -35,14 +39,14 @@ useHead({
             class="mb-16"
           />
         </template>
-        <p v-else class="text-center mt-5">配信情報はありません。</p>
+        <p v-else class="text-center mt-5">{{ $t('page.top.streams.nostreams') }}</p>
       </div>
 
       <!-- 過去のコンサート動画 -->
       <div class="flex items-center justify-center pt-6 pb-3">
         <a href="https://www.youtube.com/@user-yk8qe2nv2h" target="_blank">
           <div class="flex items-center gap-3 bg-white px-4 py-2 rounded hover:shadow">
-            <p class="text-sm">過去のコンサート動画</p>
+            <p class="text-sm">{{ $t('page.top.streams.archives') }}</p>
             <img src="~/assets/images/youtube.jpg" class="w-20" />
           </div>
         </a>

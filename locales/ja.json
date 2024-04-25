@@ -1,4 +1,35 @@
 {
+  "kurokamome": "黒かもめアンサンブル",
+
   "app.name": "ライブ配信情報 {'|'} 黒かもめアンサンブル",
-  "page.name.stream.title": "{title}"
+  "page.name.stream.title": "{title}",
+
+  "page.top.kv.catchcopy": "奏者が勝手に楽しいアンサンブル",
+  "page.top.streams.subheading": "ライブ配信情報",
+  "page.top.streams.nostreams": "配信情報はありません。",
+  "page.top.streams.archives": "過去のコンサート動画",
+
+  "header.close": "閉じる",
+  "header.open": "メニュー",
+
+  "menu.owner": "中の人",
+  "menu.archives": "過去動画",
+  "menu.news": "お知らせ",
+  "menu.contact": "お問合せ",
+  "menu.aboutkurokamome": "黒かもめアンサンブルのこと",
+  "menu.other": "Drop inの他のこと",
+  "menu.space": "不登校はフリーランス",
+  "menu.guesthouse": "鮫のゲストハウスDrop in",
+  "menu.coderdojo": "CoderDojo八戸",
+
+  "sns.x": "x",
+  "sns.instagram": "instagram",
+
+  "footer.dropintop": "Drop in 総合TOP",
+  "footer.copyright": "© Drop in. All RIGHTS RESERVED.",
+
+  "streaminfo.scheduledstream": "配信予定",
+  "streaminfo.streamingnow": "配信中",
+  "streaminfo.streamended": "配信終了",
+  "streaminfo.watch": "コンサートをみる"
 }

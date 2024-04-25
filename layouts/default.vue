@@ -1,23 +1,25 @@
 <script setup lang="ts">
+const { $i18n } = useNuxtApp()
+
 const headerMenuList = ref([
   {
-    name: "中の人",
+    name: $i18n.t('menu.owner'),
     link: "/kurokamome/owner",
     imageSrc: await import(`~/assets/images/header/icon_owner.png`),
   },
   {
-    name: "過去動画",
+    name: $i18n.t('menu.archives'),
     link: "https://www.youtube.com/@user-yk8qe2nv2h",
     imageSrc: await import(`~/assets/images/header/icon_video.png`),
     target: true
   },
   {
-    name: "お知らせ",
+    name: $i18n.t('menu.news'),
     link: "/kurokamome/news",
     imageSrc: await import(`~/assets/images/header/icon_news.png`),
   },
   {
-    name: "お問合せ",
+    name: $i18n.t('menu.contact'),
     link: "/kurokamome/contact",
     imageSrc: await import(`~/assets/images/header/icon_contact.png`),
   },
@@ -25,42 +27,42 @@ const headerMenuList = ref([
 
 const footerMenuList = ref([
   {
-    title: "黒かもめアンサンブルのこと",
+    title: $i18n.t('menu.aboutkurokamome'),
     itemList: [
       {
-        name: "過去動画",
+        name: $i18n.t('menu.archives'),
         link: "https://www.youtube.com/@user-yk8qe2nv2h",
         target: true
       },
       {
-        name: "お知らせ",
+        name: $i18n.t('menu.news'),
         link: "https://www.dropin8.jp/kurokamome/news",
       },
       {
-        name: "お問合せ",
+        name: $i18n.t('menu.contact'),
         link: "https://www.dropin8.jp/kurokamome/contact",
       },
       {
-        name: "中の人",
+        name: $i18n.t('menu.owner'),
         link: "https://www.dropin8.jp/kurokamome/owner",
       },
     ]
   },
   {
-    title: "Drop inの他のこと",
+    title: $i18n.t('menu.other'),
     itemList: [
       {
-        name: "不登校はフリーランス",
+        name: $i18n.t('menu.space'),
         link: "https://www.dropin8.jp/space",
         target: true
       },
       {
-        name: "鮫のゲストハウスDrop in",
+        name: $i18n.t('menu.guesthouse'),
         link: "https://www.dropin8.jp/guest_house",
         target: true
       },
       {
-        name: "CoderDojo八戸",
+        name: $i18n.t('menu.coderdojo'),
         link: "https://coderdojo-hachinohe.aomori.jp/",
         target: true
       },
