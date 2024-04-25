@@ -35,10 +35,6 @@ const formatDate = (d: Date) => {
 
 const liveStartAt = computed<string>((): string => {
   if (!props.stream.liveStartAt) return ''
-
-  const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }
-  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false }
-
   return formatDate(new Date(props.stream.liveStartAt))
 })
 
