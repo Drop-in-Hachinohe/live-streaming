@@ -10,16 +10,32 @@ const props = defineProps({
 
 const { $i18n } = useNuxtApp()
 
+const videoId = ref<string>(((): string => {
+  if (!props.stream.link.includes("youtube.com")) return ''
+  const urlParams = new URLSearchParams(new URL(props.stream.link).search)
+  return urlParams.get('v') ?? ''
+})())
+
+const { data: videoResponse } = await useFetch(`/api/youtube/videos/${videoId.value}`)
+
 const thumbnailUrl = computed<string>((): string => {
   if (props.stream.thumbnail) return props.stream.thumbnail
 
-  if (props.stream.link.includes("youtube.com")) {
-    const urlParams = new URLSearchParams(new URL(props.stream.link).search)
-    const videoId = urlParams.get('v')
-    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
-  } else {
-    return ''
+  if (!videoResponse.value) return 'images/default_thumbnail.jpg'
+
+  if (videoResponse.value.snippet.thumbnails.maxres) {
+    return videoResponse.value.snippet.thumbnails.maxres.url
+  } else if (videoResponse.value.snippet.thumbnails.standard) {
+    return videoResponse.value.snippet.thumbnails.standard.url
+  } else if (videoResponse.value.snippet.thumbnails.high) {
+    return videoResponse.value.snippet.thumbnails.high.url
+  } else if (videoResponse.value.snippet.thumbnails.medium) {
+    return videoResponse.value.snippet.thumbnails.medium.url
+  } else if (videoResponse.value.snippet.thumbnails.default) {
+    return videoResponse.value.snippet.thumbnails.default.url
   }
+
+  return 'images/default_thumbnail.jpg'
 })
 
 const liveStartAt = computed<string>((): string => {
@@ -100,6 +116,10 @@ const textColorByStatus = computed<string>((): string => {
     @media (min-width: 640px) {
       @apply pt-[128px] mt-[-128px];
     }
+  }
+
+  > img {
+    @apply inline-block;
   }
 }
 </style>
