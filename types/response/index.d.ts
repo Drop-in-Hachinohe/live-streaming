@@ -106,3 +106,29 @@ export type StreamResponseResult = {
     }
   }
 }
+
+export type YouTubeVideoItemResponse = {
+  id: string;
+  snippet: {
+     title: string;
+     description: string;
+     thumbnails: {
+        [key: string]: {
+           url: string;
+           width: number;
+           height: number;
+        };
+     };
+  };
+  contentDetails: {
+     duration: string;
+  };
+  statistics: {
+     viewCount: string;
+     likeCount: string;
+  };
+}
+
+export type YouTubeVideosResponse = {
+  items: YouTubeVideoItemResponse[]
+}
