@@ -25,8 +25,6 @@ export default defineEventHandler(
         throw createError({ statusCode: 404, message: 'ビデオが見つかりません。' })
       }
 
-      console.log(data.items[0])
-
       return data.items[0]
     } catch (error) {
       // @ts-ignore

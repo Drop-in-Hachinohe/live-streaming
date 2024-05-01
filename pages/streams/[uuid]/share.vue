@@ -52,11 +52,21 @@ const description = computed<string>((): string => {
 const thumbnailUrl = computed<string>((): string => {
   if (stream.value.thumbnail) return stream.value.thumbnail
 
-  if (stream.value.link.includes("youtube.com")) {
-    return `https://img.youtube.com/vi/${videoId.value}/maxresdefault.jpg`
-  } else {
-    return ''
+  if (!videoResponse.value) return 'https://live.dropin8.jp/images/ogp/drop_in_ogp.jpg'
+
+  if (videoResponse.value.snippet.thumbnails.maxres) {
+    return videoResponse.value.snippet.thumbnails.maxres.url
+  } else if (videoResponse.value.snippet.thumbnails.standard) {
+    return videoResponse.value.snippet.thumbnails.standard.url
+  } else if (videoResponse.value.snippet.thumbnails.high) {
+    return videoResponse.value.snippet.thumbnails.high.url
+  } else if (videoResponse.value.snippet.thumbnails.medium) {
+    return videoResponse.value.snippet.thumbnails.medium.url
+  } else if (videoResponse.value.snippet.thumbnails.default) {
+    return videoResponse.value.snippet.thumbnails.default.url
   }
+
+  return 'https://live.dropin8.jp/images/ogp/drop_in_ogp.jpg'
 })
 
 // Update Head
