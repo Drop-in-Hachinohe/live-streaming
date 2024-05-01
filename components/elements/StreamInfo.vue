@@ -69,7 +69,15 @@ const textColorByStatus = computed<string>((): string => {
   <div class="stream_info">
     <h3 :id="stream.uuid">{{ stream.title }}</h3>
     <img :src="thumbnailUrl" :alt="stream.title">
-    <p class="status"><span class="font-bold" :style="{ 'color': textColorByStatus }">{{ status }}</span> / {{ liveStartAt }}</p>
+    <p class="status">
+      <span
+        class="font-bold"
+        :style="{ 'color': textColorByStatus }
+      ">{{ status }}</span
+      ><span
+        :class="[liveStartAt === '' ? 'hidden' : '']"
+      > / </span>{{ liveStartAt }}
+    </p>
     <a
       class="btn btn_link"
       :href="stream.link"

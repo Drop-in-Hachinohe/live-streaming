@@ -59,7 +59,7 @@ export class Stream {
       tags: response?.properties.tags.multi_select.map(tag => Tag.fromResponse(tag)) ?? [] as Tag[],
       status: response?.properties.status.status.name || Stream.STATUS_NOT_STARTED,
       link: response?.properties.link.url || '',
-      liveStartAt: response?.properties.live_at.date.start || null,
+      liveStartAt: response?.properties.live_at.date?.start || null,
       thumbnail: response?.properties.thumbnail.url || null,
       publish: response?.properties.publish.select.name === Stream.PUBLISH_TRUE,
     })
