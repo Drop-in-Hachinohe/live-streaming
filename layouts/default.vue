@@ -9,7 +9,7 @@ const headerMenuList = ref([
   },
   {
     name: $i18n.t('menu.archives'),
-    link: "https://www.youtube.com/@user-yk8qe2nv2h",
+    link: "https://www.youtube.com/@%E9%BB%92%E3%81%8B%E3%82%82%E3%82%81%E3%82%A2%E3%83%B3%E3%82%B5%E3%83%B3%E3%83%96%E3%83%AB",
     imageSrc: await import(`~/assets/images/header/icon_video.png`),
     target: true
   },
